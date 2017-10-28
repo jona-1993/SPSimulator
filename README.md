@@ -23,6 +23,3 @@ Cliquez sur répartir,
 Une fois le label NOT READY passé à READY, cliquez sur le bouton Potentiel.
 
 Vous aurez ainsi votre résultat!
-
-
-Afin de récupérer l'exécutable, il vous faudra compiler le projet à l'aide de Visual Studio.
