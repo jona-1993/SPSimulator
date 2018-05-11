@@ -64,6 +64,7 @@
             this.DescLabel = new System.Windows.Forms.Label();
             this.UpgradeSPButton = new System.Windows.Forms.Panel();
             this.ConfigSPPanel = new System.Windows.Forms.Panel();
+            this.CheckPotentielLabel = new System.Windows.Forms.Label();
             this.ResultHpLabel = new System.Windows.Forms.Label();
             this.ResultElemLabel = new System.Windows.Forms.Label();
             this.ResultDefLabel = new System.Windows.Forms.Label();
@@ -107,7 +108,6 @@
             this.FermerConfigButton = new System.Windows.Forms.PictureBox();
             this.LevelTB = new System.Windows.Forms.TextBox();
             this.Grade80plusTB = new System.Windows.Forms.TextBox();
-            this.CheckPotentielLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.SPPictureBox)).BeginInit();
             this.MessagesPanel.SuspendLayout();
             this.ConfigSPPanel.SuspendLayout();
@@ -536,6 +536,17 @@
             this.ConfigSPPanel.Size = new System.Drawing.Size(279, 372);
             this.ConfigSPPanel.TabIndex = 31;
             this.ConfigSPPanel.Visible = false;
+            // 
+            // CheckPotentielLabel
+            // 
+            this.CheckPotentielLabel.AutoSize = true;
+            this.CheckPotentielLabel.BackColor = System.Drawing.Color.Transparent;
+            this.CheckPotentielLabel.ForeColor = System.Drawing.Color.OrangeRed;
+            this.CheckPotentielLabel.Location = new System.Drawing.Point(19, 292);
+            this.CheckPotentielLabel.Name = "CheckPotentielLabel";
+            this.CheckPotentielLabel.Size = new System.Drawing.Size(44, 13);
+            this.CheckPotentielLabel.TabIndex = 41;
+            this.CheckPotentielLabel.Text = "READY";
             // 
             // ResultHpLabel
             // 
@@ -997,17 +1008,6 @@
             this.Grade80plusTB.Text = "80";
             this.Grade80plusTB.TextChanged += new System.EventHandler(this.Grade80plusTB_TextChanged);
             // 
-            // CheckPotentielLabel
-            // 
-            this.CheckPotentielLabel.AutoSize = true;
-            this.CheckPotentielLabel.BackColor = System.Drawing.Color.Transparent;
-            this.CheckPotentielLabel.ForeColor = System.Drawing.Color.OrangeRed;
-            this.CheckPotentielLabel.Location = new System.Drawing.Point(19, 292);
-            this.CheckPotentielLabel.Name = "CheckPotentielLabel";
-            this.CheckPotentielLabel.Size = new System.Drawing.Size(44, 13);
-            this.CheckPotentielLabel.TabIndex = 41;
-            this.CheckPotentielLabel.Text = "READY";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1054,7 +1054,8 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SP Simulator";
-            this.TopMost = true;
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Leave += new System.EventHandler(this.Form1_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.SPPictureBox)).EndInit();
             this.MessagesPanel.ResumeLayout(false);
             this.MessagesPanel.PerformLayout();

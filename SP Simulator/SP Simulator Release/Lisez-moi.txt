@@ -1,8 +1,11 @@
 *******************************************************************
-****************** SP SIMULATOR v.17.4.15 (Bêta) ******************
+****************** SP SIMULATOR v.18.5.18 (Bêta) ******************
 *******************************************************************
 
 Notes de MaJ:
+
+18.5.18 (Bêta):
+- L'application s'affichera en premier plan, au dessus de la fenêtre de jeu. (Droits administrateur requis pour utiliser cette fonction)
 
 17.4.15 (Bêta): 
 - Fin de la phase Alpha.
@@ -16,7 +19,6 @@ MaJ futures:
 - Corrections dans les stat de bases des SPs.
 - Ajout d'un système de commentaires selon la sp sélectionnée et les points attribués
   afin de donner un bref résumé sur le potentiel de la SP en jeu.
-- J'ai également envie de trouver un moyen de placer les fenêtes en premier plan sur le jeu.
 
 
 Utilisation:
@@ -27,7 +29,3 @@ Utilisation:
 - Le bouton Potentiel (Qui va permettre l'affichage du potentiel) ne sera actif que quand vous aurez répartis
   les points sans erreurs. Il sera ainsi écrit READY à côté du bouton.
 - Info: Les bonus dans la fenêtre du potentiel sont à prendre en compte.
-
-
-Bugs:
-- Vous pouvez signaler tout bug de l'application ou suggestions à jona1993 sur le Serveur Océanie (Serveur 1) de Nostale FR.

@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,15 +18,50 @@ namespace SP_Simulator
         SPCard SPSelected;
         int SLAtk = 0, SLDef = 0, SLElem = 0, SLHp = 0, SLGen = 0;
         long pointsUtilisés = 0, pointsMax = 0, pointsLevel = 0, pointsGrade = 0, pointsRestant = 0, pointsUtilisésAtk = 0, pointsUtilisésDef = 0, pointsUtilisésElem = 0, pointsUtilisésHp = 0;
+        System.Windows.Forms.Timer foc = new System.Windows.Forms.Timer();
+        private Process pDocked;
 
+        [DllImport("user32.dll")]
+        public static extern IntPtr SetParent(IntPtr hWndChild, IntPtr hWndNewParent);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        public static extern bool MoveWindow(IntPtr hWnd, int X, int Y, int nWidth, int nHeight, bool bRepaint);
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
+        }
+        void Activation(object sender, EventArgs e)
+        {
+            this.Activate();
+        }
         public Form1()
         {
+            
             InitializeComponent();
+            
+
+            this.TopMost = true;
+            try 
+            {
+                pDocked = Process.GetProcessesByName("NostaleClientX").First();
+                Thread.Sleep(5000);
+                
+                SetParent(pDocked.MainWindowHandle, Process.GetCurrentProcess().Handle); // L'appli doit avoir les droits !
+                
+                foc.Tick += Activation;
+                foc.Interval = 2000;
+                foc.Start();
+            }
+            catch (Exception)
+            {
+
+            }
 
 
             MessagesPanel.Visible = false;
 
-            DescLabel.Text = "Développeur: C. Jonathan\n\nVersion: 17.4.15 (Bêta)\n\nCopyright: (2017) Tous droits réservés.";
+            DescLabel.Text = "Développeur: C. Jonathan\n\nVersion: 18.5.18 (Bêta)\n\nCopyright: (" + DateTime.Now.Year + ") Tous droits réservés.";
 
             Grade80plusTB.Visible = false;
 
@@ -119,7 +155,8 @@ namespace SP_Simulator
 
         private void ChoixCB_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(ChoixCB.SelectedText != "Sélection")
+            
+            if (ChoixCB.SelectedText != "Sélection")
             {
                 SPSelected = new SPCard((SPCard)ChoixCB.SelectedItem);
 
@@ -1186,6 +1223,11 @@ namespace SP_Simulator
             catch(FormatException) { Grade80plusTB.Text = "80"; }
             catch (ArgumentException) { }
             catch (OverflowException) { }
+        }
+
+        private void Form1_Leave(object sender, EventArgs e)
+        {
+
         }
 
         private int CountPointHp(int nbpoints)
