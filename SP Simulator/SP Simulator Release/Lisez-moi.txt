@@ -29,3 +29,5 @@ Utilisation:
 - Le bouton Potentiel (Qui va permettre l'affichage du potentiel) ne sera actif que quand vous aurez répartis
   les points sans erreurs. Il sera ainsi écrit READY à côté du bouton.
 - Info: Les bonus dans la fenêtre du potentiel sont à prendre en compte.
+
+Important: Si l'affichage en premier plan ne marche pas très bien, lancez le simulateur en mode administrateur (après avoir lancé le jeu). ça devrai corriger certains problèmes!
