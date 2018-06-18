@@ -1,8 +1,11 @@
 *******************************************************************
-****************** SP SIMULATOR v.18.5.18 (Bêta) ******************
+****************** SP SIMULATOR v.18.6.18 (Bêta) ******************
 *******************************************************************
 
 Notes de MaJ:
+
+18.6.18 (Bêta):
+- Le mode triche permet maintenant la saisie du niveau d'amélioration.
 
 18.5.18 (Bêta):
 - L'application s'affichera en premier plan, au dessus de la fenêtre de jeu. (Droits administrateur requis pour utiliser cette fonction)
@@ -28,6 +31,6 @@ Utilisation:
 - Les autres configurations et affichage du potentiel se font grâce au bouton UP.
 - Le bouton Potentiel (Qui va permettre l'affichage du potentiel) ne sera actif que quand vous aurez répartis
   les points sans erreurs. Il sera ainsi écrit READY à côté du bouton.
-- Info: Les bonus dans la fenêtre du potentiel sont à prendre en compte.
+- Info: Les bonus dans la fenêtre du potentiel sont à prendre en compte. (Ne sont pas pris en compte dans le calcul global)
 
 Important: Si l'affichage en premier plan ne marche pas très bien, lancez le simulateur en mode administrateur (après avoir lancé le jeu). ça devrai corriger certains problèmes!

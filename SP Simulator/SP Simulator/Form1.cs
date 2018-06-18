@@ -61,7 +61,7 @@ namespace SP_Simulator
 
             MessagesPanel.Visible = false;
 
-            DescLabel.Text = "Développeur: C. Jonathan\n\nVersion: 18.5.18 (Bêta)\n\nCopyright: (" + DateTime.Now.Year + ") Tous droits réservés.";
+            DescLabel.Text = "Développeur: C. Jonathan\n\nVersion: 18.6.18 (Bêta)\n\nCopyright: (" + DateTime.Now.Year + ") Tous droits réservés.";
 
             Grade80plusTB.Visible = false;
 
@@ -824,7 +824,10 @@ namespace SP_Simulator
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            LevelTB.Text = "1";
+            if (sender is int)
+                LevelTB.Text = sender.ToString();
+            else
+                LevelTB.Text = "1";
             AtkTB.Text = "0";
             DefTB.Text = "0";
             ElemTB.Text = "0";
@@ -1506,9 +1509,13 @@ namespace SP_Simulator
                             MessageLabel.Text = "Votre SP est à son\nmaximum !";
                             break;
                         case 2:
-                            SPSelected.grade += 1;
-                            GradeLabel.Text = "+" + SPSelected.grade;
-                            MessageLabel.Text = "Amélioré avec succès !";
+                            MessageLabel.Text = "Votre SP a été modifiée !";
+                            SPSelected.points = win.CheatGain.Value;
+                            SPSelected.grade = win.CheatUpgrade.Value;
+                            pointsGrade = win.CheatGain.Value;
+                            PtsLabel.Text = pointsGrade.ToString();
+                            GradeLabel.Text = "+" + win.CheatUpgrade.Value.ToString();
+                            DeleteButton_Click(SPSelected.niveau, null);
                             break;
                         case 1:
                             MessageLabel.Text = "Echec !";
@@ -1523,11 +1530,14 @@ namespace SP_Simulator
                             break;
                     }
 
-                    SPSelected.points += win.gain;
+                    if (win.CheatUpgrade == null)
+                    {
+                        SPSelected.points += win.gain;
 
-                    pointsGrade += win.gain;
+                        pointsGrade += win.gain;
 
-                    PtsLabel.Text = (int.Parse(PtsLabel.Text) + win.gain).ToString();
+                        PtsLabel.Text = (int.Parse(PtsLabel.Text) + win.gain).ToString();
+                    }
 
                     MessagesPanel.Visible = true;
 

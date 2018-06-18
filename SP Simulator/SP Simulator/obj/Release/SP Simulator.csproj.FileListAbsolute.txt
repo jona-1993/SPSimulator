@@ -9,3 +9,4 @@ C:\Users\jona1993\Desktop\SP Simulator\SP Simulator\obj\Release\SP Simulator.pdb
 C:\Users\jona1993\Desktop\SP Simulator\SP Simulator\obj\Release\SP Simulator.csprojResolveAssemblyReference.cache
 C:\Users\jona1993\Desktop\SP Simulator\SP Simulator\obj\Release\SP_Simulator.SPUpgrade.resources
 C:\Users\jona1993\Desktop\SP Simulator\SP Simulator\obj\Release\SP_Simulator.PotentielGUI.resources
+C:\Users\capij\Desktop\GITHUB\SPSimulator\SP Simulator\SP Simulator\obj\Release\SP Simulator.pdb

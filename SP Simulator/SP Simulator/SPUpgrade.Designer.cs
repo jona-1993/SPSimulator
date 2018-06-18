@@ -41,6 +41,8 @@
             this.AmeliorerButton = new System.Windows.Forms.Label();
             this.CheatButton = new System.Windows.Forms.Button();
             this.DowngradeButton = new System.Windows.Forms.Button();
+            this.GradeCheatTB = new System.Windows.Forms.TextBox();
+            this.GradeCheatLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.SpecialItemPB)).BeginInit();
             this.SuspendLayout();
             // 
@@ -177,13 +179,34 @@
             this.DowngradeButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DowngradeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DowngradeButton.ForeColor = System.Drawing.Color.DarkOrange;
-            this.DowngradeButton.Location = new System.Drawing.Point(30, 91);
+            this.DowngradeButton.Location = new System.Drawing.Point(30, 86);
             this.DowngradeButton.Name = "DowngradeButton";
             this.DowngradeButton.Size = new System.Drawing.Size(75, 23);
             this.DowngradeButton.TabIndex = 11;
             this.DowngradeButton.Text = "Downgrade";
             this.DowngradeButton.UseVisualStyleBackColor = false;
             this.DowngradeButton.Click += new System.EventHandler(this.DowngradeButton_Click);
+            // 
+            // GradeCheatTB
+            // 
+            this.GradeCheatTB.BackColor = System.Drawing.Color.Coral;
+            this.GradeCheatTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.GradeCheatTB.Location = new System.Drawing.Point(88, 89);
+            this.GradeCheatTB.Name = "GradeCheatTB";
+            this.GradeCheatTB.Size = new System.Drawing.Size(29, 20);
+            this.GradeCheatTB.TabIndex = 12;
+            this.GradeCheatTB.Text = "0";
+            // 
+            // GradeCheatLabel
+            // 
+            this.GradeCheatLabel.AutoSize = true;
+            this.GradeCheatLabel.BackColor = System.Drawing.Color.Transparent;
+            this.GradeCheatLabel.ForeColor = System.Drawing.Color.Coral;
+            this.GradeCheatLabel.Location = new System.Drawing.Point(15, 92);
+            this.GradeCheatLabel.Name = "GradeCheatLabel";
+            this.GradeCheatLabel.Size = new System.Drawing.Size(67, 13);
+            this.GradeCheatLabel.TabIndex = 13;
+            this.GradeCheatLabel.Text = "Amélioration:";
             // 
             // SPUpgrade
             // 
@@ -192,6 +215,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(301, 293);
+            this.Controls.Add(this.GradeCheatLabel);
+            this.Controls.Add(this.GradeCheatTB);
             this.Controls.Add(this.DowngradeButton);
             this.Controls.Add(this.CheatButton);
             this.Controls.Add(this.AmeliorerButton);
@@ -235,5 +260,7 @@
         private System.Windows.Forms.Label AmeliorerButton;
         private System.Windows.Forms.Button CheatButton;
         private System.Windows.Forms.Button DowngradeButton;
+        private System.Windows.Forms.TextBox GradeCheatTB;
+        private System.Windows.Forms.Label GradeCheatLabel;
     }
 }

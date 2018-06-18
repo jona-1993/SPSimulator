@@ -15,6 +15,8 @@ namespace SP_Simulator
         public int status = 1;
         public int gain = 0;
         private SPCard carte;
+        public int? CheatUpgrade;
+        public int? CheatGain;
 
         public SPUpgrade()
         {
@@ -24,6 +26,11 @@ namespace SP_Simulator
         public SPUpgrade(SPCard card)
         {
             InitializeComponent();
+
+            CheatUpgrade = null;
+            CheatGain = null;
+            GradeCheatTB.Visible = false;
+            GradeCheatLabel.Visible = false;
 
             if(card.grade < 5)
             {
@@ -419,54 +426,69 @@ namespace SP_Simulator
                         status = 3;
                         break;
                 }
+                Close();
             }
             else
             {
-                if (carte.grade != 15)
+                try
                 {
                     status = 2;
-
-                   if(carte.grade < 4)
+                    CheatUpgrade = int.Parse(GradeCheatTB.Text);
+                    int tempupgrade = CheatUpgrade.Value;
+                    if (CheatUpgrade > -1 && CheatUpgrade < 16)
                     {
-                        gain = 5;
+                        if (tempupgrade < 5)
+                        {
+                            CheatGain = tempupgrade * 5;
+                        }
+                        else if (tempupgrade < 7)
+                        {
+                            tempupgrade -= 4;
+                            CheatGain = 20;
+                            CheatGain += (tempupgrade * 8);
+                        }
+                        else if (tempupgrade < 9)
+                        {
+                            tempupgrade -= 6;
+                            CheatGain = 36;
+                            CheatGain += (tempupgrade * 10);
+                        }
+                        else if (tempupgrade < 11)
+                        {
+                            tempupgrade -= 8;
+                            CheatGain = 56;
+                            CheatGain += (tempupgrade * 12);
+                        }
+                        else if (tempupgrade < 13)
+                        {
+                            tempupgrade -= 10;
+                            CheatGain = 80;
+                            CheatGain += (tempupgrade * 15);
+                        }
+                        else if (tempupgrade == 13)
+                        {
+                            CheatGain = 128;
+                        }
+                        else if (tempupgrade == 14)
+                        {
+                            CheatGain = 148;
+                        }
+                        else if (tempupgrade == 15)
+                        {
+                            CheatGain = 173;
+                        }
+                        Close();
                     }
-                   else if(carte.grade < 6)
+                    else
                     {
-                        gain = 8;
+                        GradeCheatTB.BackColor = Color.Red;
                     }
-                    else if (carte.grade < 8)
-                    {
-                        gain = 10;
-                    }
-                    else if (carte.grade < 10)
-                    {
-                        gain = 12;
-                    }
-                    else if (carte.grade < 12)
-                    {
-                        gain = 15;
-                    }
-                    else if (carte.grade == 12)
-                    {
-                        gain = 18;
-                    }
-                    else if (carte.grade == 13)
-                    {
-                        gain = 20;
-                    }
-                    else if (carte.grade == 14)
-                    {
-                        gain = 25;
-                    }
-
                 }
-                else
+                catch(Exception)
                 {
-                    status = 3;
+                    GradeCheatTB.BackColor = Color.Red;
                 }
             }
-           
-            Close();
         }
 
         private void CheatButton_Click(object sender, EventArgs e)
@@ -474,53 +496,64 @@ namespace SP_Simulator
             if (CheatButton.Text == "Triche OFF")
             {
                 CheatButton.Text = "Triche ON";
+
+                DowngradeButton.Visible = false;
+                GradeCheatTB.Visible = true;
+                GradeCheatLabel.Visible = true;
             }
             else
             {
                 CheatButton.Text = "Triche OFF";
+
+                DowngradeButton.Visible = true;
+                GradeCheatTB.Visible = false;
+                GradeCheatLabel.Visible = false;
             }
+
+            
         }
 
         private void DowngradeButton_Click(object sender, EventArgs e)
         {
-            if (carte.grade != 0)
-            {
-                status = -1;
+                if (carte.grade != 0)
+                {
+                    status = -1;
 
-                if (carte.grade < 5)
-                {
-                    gain = -5;
-                }
-                else if (carte.grade < 7)
-                {
-                    gain = -8;
-                }
-                else if (carte.grade < 9)
-                {
-                    gain = -10;
-                }
-                else if (carte.grade < 11)
-                {
-                    gain = -12;
-                }
-                else if (carte.grade < 13)
-                {
-                    gain = -15;
-                }
-                else if (carte.grade == 13)
-                {
-                    gain = -18;
-                }
-                else if (carte.grade == 14)
-                {
-                    gain = -20;
-                }
-                else if (carte.grade == 15)
-                {
-                    gain = -25;
-                }
+                    if (carte.grade < 5)
+                    {
+                        gain = -5;
+                    }
+                    else if (carte.grade < 7)
+                    {
+                        gain = -8;
+                    }
+                    else if (carte.grade < 9)
+                    {
+                        gain = -10;
+                    }
+                    else if (carte.grade < 11)
+                    {
+                        gain = -12;
+                    }
+                    else if (carte.grade < 13)
+                    {
+                        gain = -15;
+                    }
+                    else if (carte.grade == 13)
+                    {
+                        gain = -18;
+                    }
+                    else if (carte.grade == 14)
+                    {
+                        gain = -20;
+                    }
+                    else if (carte.grade == 15)
+                    {
+                        gain = -25;
+                    }
 
-                Close();
+                    Close();
+                
             }
         }
     }
