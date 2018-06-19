@@ -55,6 +55,8 @@
             this.BonusToutElement = new System.Windows.Forms.Label();
             this.BonusDimDegatsMagiques = new System.Windows.Forms.Label();
             this.BonusFéeLabel = new System.Windows.Forms.Label();
+            this.PotentielLabel = new System.Windows.Forms.Label();
+            this.ConseilsLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.CloseButton)).BeginInit();
             this.SuspendLayout();
             // 
@@ -346,13 +348,40 @@
             this.BonusFéeLabel.TabIndex = 25;
             this.BonusFéeLabel.Text = "Fée: ";
             // 
+            // PotentielLabel
+            // 
+            this.PotentielLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.PotentielLabel.AutoSize = true;
+            this.PotentielLabel.BackColor = System.Drawing.Color.Transparent;
+            this.PotentielLabel.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.PotentielLabel.Location = new System.Drawing.Point(26, 585);
+            this.PotentielLabel.Name = "PotentielLabel";
+            this.PotentielLabel.Size = new System.Drawing.Size(70, 13);
+            this.PotentielLabel.TabIndex = 26;
+            this.PotentielLabel.Text = "ConseilsBody";
+            this.PotentielLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.PotentielLabel.Click += new System.EventHandler(this.PotentielLabel_Click);
+            // 
+            // ConseilsLabel
+            // 
+            this.ConseilsLabel.AutoSize = true;
+            this.ConseilsLabel.BackColor = System.Drawing.Color.Transparent;
+            this.ConseilsLabel.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.ConseilsLabel.Location = new System.Drawing.Point(26, 562);
+            this.ConseilsLabel.Name = "ConseilsLabel";
+            this.ConseilsLabel.Size = new System.Drawing.Size(49, 13);
+            this.ConseilsLabel.TabIndex = 27;
+            this.ConseilsLabel.Text = "Conseils:";
+            // 
             // PotentielGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(290, 710);
+            this.ClientSize = new System.Drawing.Size(290, 740);
+            this.Controls.Add(this.ConseilsLabel);
+            this.Controls.Add(this.PotentielLabel);
             this.Controls.Add(this.BonusFéeLabel);
             this.Controls.Add(this.BonusDimDegatsMagiques);
             this.Controls.Add(this.BonusToutElement);
@@ -424,5 +453,7 @@
         private System.Windows.Forms.Label BonusToutElement;
         private System.Windows.Forms.Label BonusDimDegatsMagiques;
         private System.Windows.Forms.Label BonusFéeLabel;
+        private System.Windows.Forms.Label PotentielLabel;
+        private System.Windows.Forms.Label ConseilsLabel;
     }
 }

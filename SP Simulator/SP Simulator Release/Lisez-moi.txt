@@ -1,8 +1,12 @@
 *******************************************************************
-****************** SP SIMULATOR v.18.6.18 (Bêta) ******************
+****************** SP SIMULATOR v.18.6.19 (Bêta) ******************
 *******************************************************************
 
 Notes de MaJ:
+
+18.6.19 (Bêta):
+- Ajout d'un système de génération automatique de conseils à propos du potentiel de la SP.
+- Corrections de bugs mineurs.
 
 18.6.18 (Bêta):
 - Le mode triche permet maintenant la saisie du niveau d'amélioration.
@@ -20,8 +24,6 @@ Notes de MaJ:
 MaJ futures: 
 - Ajout des cartes SP manquantes.
 - Corrections dans les stat de bases des SPs.
-- Ajout d'un système de commentaires selon la sp sélectionnée et les points attribués
-  afin de donner un bref résumé sur le potentiel de la SP en jeu.
 
 
 Utilisation:

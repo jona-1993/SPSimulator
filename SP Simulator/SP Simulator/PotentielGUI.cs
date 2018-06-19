@@ -12,16 +12,41 @@ namespace SP_Simulator
 {
     public partial class PotentielGUI : Form
     {
-        int attaque = 0, precision = 0, esquive = 0, element = 0, hp = 0, mp = 0, chancecc = 0, degatscc = 0, alldef = 0, dimchancecc = 0, dimcc = 0, dimmagie = 0, allres = 0;
+        int attaque = 0, precision = 0, esquive = 0, element = 0, hp = 0, mp = 0, chancecc = 0, degatscc = 0, alldef = 0, dimchancecc = 0, dimcc = 0, dimmagie = 0, allres = 0, ptsrest = 0, SLTotal = 0;
+
+        private void PotentielLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        long ptsmax = 0;
+        System.Windows.Forms.Timer foc = new System.Windows.Forms.Timer();
 
         public PotentielGUI()
         {
             InitializeComponent();
         }
 
-        public PotentielGUI(SPCard sp, int SLAtk, int SLDef, int SLElem, int SLHp, int SLGen, long PointAttaque, long PointDefense, long PointElement, long PointHp)
+        void Activation(object sender, EventArgs e)
+        {
+            this.Activate();
+        }
+
+        public PotentielGUI(SPCard sp, int SLAtk, int SLDef, int SLElem, int SLHp, int SLGen, long PointAttaque, long PointDefense, long PointElement, long PointHp, int ptsres, long ptsmx)
         {
             InitializeComponent();
+
+            this.TopMost = true;
+
+            foc.Tick += Activation;
+            foc.Interval = 2000;
+            foc.Start();
+
+            ptsrest = ptsres;
+
+            ptsmax = ptsmx;
+
+            SLTotal = SLAtk + SLDef + SLElem + SLHp + (SLGen * 4);
 
             SPNameLabel.Text = sp.nom;
 
@@ -392,8 +417,10 @@ namespace SP_Simulator
             BonusDimDegatCCLabel.Text = "Red. Dégats Crit.: -" + dimcc + "%";
             BonusDimDegatsMagiques.Text = "Red. Dégats Mag.: -" + dimmagie + " Points";
             BonusToutElement.Text = "Toute Résistances: +" + allres + "%";
-            BonusFéeLabel.Text = "Fée: +" + sp.bonusElement + "%"; 
+            BonusFéeLabel.Text = "Fée: +" + sp.bonusElement + "%";
 
+
+            getPotentiel(sp);
         }
 
 
@@ -430,6 +457,165 @@ namespace SP_Simulator
             base.WndProc(ref m);
 
 
+        }
+
+        private void getPotentiel(SPCard sp)
+        {
+            if(ptsmax > 400)
+                PotentielLabel.Text = BoiteAPotentiel(1);
+            else if(ptsmax > 100)
+                PotentielLabel.Text = BoiteAPotentiel(2);
+            else
+                PotentielLabel.Text = BoiteAPotentiel(3);
+
+            if (sp.attaque >= 90)
+                PotentielLabel.Text += "\n" + BoiteAPotentiel(4);
+
+            if (sp.defense >= 90)
+                PotentielLabel.Text += "\n" + BoiteAPotentiel(15);
+
+            if (sp.hp >= 90)
+                PotentielLabel.Text += "\n" + BoiteAPotentiel(10);
+
+            if (sp.element >= 90)
+                PotentielLabel.Text += "\n" + BoiteAPotentiel(5);
+
+            if(sp.attaque >= 30 && sp.defense >= 30 && sp.element >= 30 && sp.hp >= 30)
+                PotentielLabel.Text += "\n" + BoiteAPotentiel(6);
+            
+            if(sp.grade < 10 || sp.niveau < 80)
+                PotentielLabel.Text += "\n" + BoiteAPotentiel(7);
+
+            if(sp.grade == 15 && sp.niveau == 99 && ptsrest != 0)
+                PotentielLabel.Text += "\n" + BoiteAPotentiel(8);
+
+            if (sp.nom == "Mage ténébreux")
+                PotentielLabel.Text += "\n" + BoiteAPotentiel(12);
+
+            if (sp.nom == "Volcanor")
+            {
+                PotentielLabel.Text += "\n" + BoiteAPotentiel(11);
+                if(sp.hp < 25)
+                {
+                    PotentielLabel.Text += "\n" + BoiteAPotentiel(16);
+                }
+            }
+
+            if (sp.nom == "Sa Majesté des marées")
+                PotentielLabel.Text += "\n" + BoiteAPotentiel(11);
+
+            if (sp.nom == "Devin")
+            {
+                PotentielLabel.Text += "\n" + BoiteAPotentiel(11);
+
+                if (sp.hp < 40)
+                {
+                    PotentielLabel.Text += "\n" + BoiteAPotentiel(16);
+                }
+            }
+
+            if (sp.nom == "Archimage")
+            {
+                PotentielLabel.Text += "\n" + BoiteAPotentiel(11);
+                if (sp.hp < 25)
+                {
+                    PotentielLabel.Text += "\n" + BoiteAPotentiel(16);
+                }
+            }
+
+            if((sp.resEau + sp.resFeu + sp.resLumiere + sp.resObscure + sp.bonusResEau + sp.bonusResFeu + sp.bonusResLumiere + sp.bonusResObscure + (allres * 4)) > 49)
+            {
+                PotentielLabel.Text += "\n" + BoiteAPotentiel(14);
+            }
+
+            int totalBonus = (sp.bonusAttaque + sp.bonusDefense + sp.bonusElement + sp.bonusHp + sp.bonusResEau + sp.bonusResFeu + sp.bonusResLumiere + sp.bonusResObscure);
+            int moyenneBonus = totalBonus / 8;
+            
+            if (totalBonus != 0)
+            {
+                if (sp.bonusAttaque >= moyenneBonus && sp.bonusDefense >= moyenneBonus && sp.bonusElement >= moyenneBonus && sp.bonusHp >= moyenneBonus)
+                    PotentielLabel.Text += "\n" + BoiteAPotentiel(21);
+                else
+                {
+                    if (sp.bonusDefense > moyenneBonus)
+                        PotentielLabel.Text += "\n" + BoiteAPotentiel(17);
+
+                    if (sp.bonusAttaque > moyenneBonus)
+                        PotentielLabel.Text += "\n" + BoiteAPotentiel(18);
+
+                    if (sp.bonusElement > moyenneBonus)
+                        PotentielLabel.Text += "\n" + BoiteAPotentiel(19);
+
+                    if (sp.bonusHp > moyenneBonus)
+                        PotentielLabel.Text += "\n" + BoiteAPotentiel(20);
+                }
+                
+                if((sp.bonusResEau + sp.bonusResFeu + sp.bonusResLumiere + sp.bonusResObscure) > moyenneBonus)
+                    PotentielLabel.Text += "\n" + BoiteAPotentiel(22);
+
+                if (SLTotal < 20)
+                    PotentielLabel.Text += "\n" + BoiteAPotentiel(9);
+            }
+            else
+            {
+                PotentielLabel.Text += "\n" + BoiteAPotentiel(23);
+            }
+        }
+
+        private String BoiteAPotentiel(int choix)
+        {
+            switch(choix)
+            {
+                case 1:
+                    return "- Cette SP est excellente!";
+                case 2:
+                    return "- Cette SP est dans la moyenne.";
+                case 3:
+                    return "- Cette SP n'est pas terrible...";
+                case 4:
+                    return "- On y voit un gros potentiel en PvP.";
+                case 5:
+                    return "- C'est parfait pour du PvE.\nVeillez a avoir des baisses de résistances sur vos armes.";
+                case 6:
+                    return "- C'est plutôt équilibré, vous pouvez\nl'utiliser pour toutes circonstances.";
+                case 7:
+                    return "- Il y a encore du boulot pour en faire une SP\nd'exception !";
+                case 8:
+                    return "- Vous devriez exploiter la totalité des points\nque vous avez brillament gagnés...";
+                case 9:
+                    return "- Quelques petites SL sur vos armes ne\nserai pas de refus ! ;)";
+                case 10:
+                    return "- Vous allez être un sacré bourrin avec vos HPs !";
+                case 11:
+                    return "- Vous aurez besoin d'une bonne arme principale.";
+                case 12:
+                    return "- Vous aurez besoin d'une bonne arme secondaire.";
+                case 13:
+                    return "- Vous aurez besoin d'une bonne armure.";
+                case 14:
+                    return "- Vous avez de bonnes résistances.";
+                case 15:
+                    return "- Vous avez une excellente défense.";
+                case 16:
+                    return "- Vous devriez booster un peu plus vos manas!";
+                case 17:
+                    return "- Vous semblez être dirigés vers une SP défensive!";
+                case 18:
+                    return "- Vous semblez être dirigés vers une SP PvP!";
+                case 19:
+                    return "- Vous semblez être dirigés vers une SP PvE!";
+                case 20:
+                    return "- Vous semblez être dirigés vers une SP endurante!";
+                case 21:
+                    return "- Vous semblez être dirigés vers une SP équilibrée!";
+                case 22:
+                    return "- Vous semblez être dirigés vers une SP résistante\naux éléments!";
+                case 23:
+                    return "- Vous devriez commencer à utiliser des\npierres d'améliorations!";
+
+            }
+
+            return null;
         }
 
         private void CloseButton_Click(object sender, EventArgs e)

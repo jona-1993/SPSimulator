@@ -61,7 +61,7 @@ namespace SP_Simulator
 
             MessagesPanel.Visible = false;
 
-            DescLabel.Text = "Développeur: C. Jonathan\n\nVersion: 18.6.18 (Bêta)\n\nCopyright: (" + DateTime.Now.Year + ") Tous droits réservés.";
+            DescLabel.Text = "Développeur: C. Jonathan\n\nVersion: 18.6.19 (Bêta)\n\nCopyright: (" + DateTime.Now.Year + ") Tous droits réservés.";
 
             Grade80plusTB.Visible = false;
 
@@ -1204,9 +1204,10 @@ namespace SP_Simulator
         {
             if (CheckPotentielLabel.Text == "READY")
             {
-                PotentielGUI win = new PotentielGUI(SPSelected, SLAtk, SLDef, SLElem, SLHp, SLGen, CountAtk(long.Parse(AtkTB.Text) + long.Parse(SLAtkTB.Text) + long.Parse(SLGenTB.Text)), CountDef(long.Parse(DefTB.Text) + long.Parse(SLDefTB.Text) + long.Parse(SLGenTB.Text)), CountElem(long.Parse(ElemTB.Text) + long.Parse(SLElemTB.Text) + long.Parse(SLGenTB.Text)), CountHp(long.Parse(HpTB.Text) + long.Parse(SLHpTB.Text) + long.Parse(SLGenTB.Text)));
-
+                PotentielGUI win = new PotentielGUI(SPSelected, SLAtk, SLDef, SLElem, SLHp, SLGen, CountAtk(long.Parse(AtkTB.Text) + long.Parse(SLAtkTB.Text) + long.Parse(SLGenTB.Text)), CountDef(long.Parse(DefTB.Text) + long.Parse(SLDefTB.Text) + long.Parse(SLGenTB.Text)), CountElem(long.Parse(ElemTB.Text) + long.Parse(SLElemTB.Text) + long.Parse(SLGenTB.Text)), CountHp(long.Parse(HpTB.Text) + long.Parse(SLHpTB.Text) + long.Parse(SLGenTB.Text)), int.Parse(PointsConsoTB.Text), (pointsLevel + pointsGrade));
+                foc.Stop();
                 win.ShowDialog();
+                foc.Start();
             }
         }
 
@@ -1500,8 +1501,9 @@ namespace SP_Simulator
                 if (ConfigSPPanel.Visible == false)
                 {
                     SPUpgrade win = new SPUpgrade(SPSelected);
-
+                    foc.Stop();
                     win.ShowDialog();
+                    foc.Start();
 
                     switch (win.status)
                     {
