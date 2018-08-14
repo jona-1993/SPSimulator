@@ -61,7 +61,7 @@ namespace SP_Simulator
 
             MessagesPanel.Visible = false;
 
-            DescLabel.Text = "Développeur: C. Jonathan\n\nVersion: 18.6.19 (Bêta)\n\nCopyright: (" + DateTime.Now.Year + ") Tous droits réservés.";
+            DescLabel.Text = "Développeur: C. Jonathan\n\nVersion: 18.8.14 (Bêta)\n\nCopyright: (" + DateTime.Now.Year + ") Tous droits réservés.";
 
             Grade80plusTB.Visible = false;
 
@@ -99,6 +99,7 @@ namespace SP_Simulator
             ChoixCB.Items.Add(new SPCard("Eclaireur", 5, 14, 5, 3, 2));
             ChoixCB.Items.Add(new SPCard("Chasseur de démons", 4, 3, 6, 16, 2));
             ChoixCB.Items.Add(new SPCard("Ange vengeur", 3, 4, 18, 2, 2));
+            ChoixCB.Items.Add(new SPCard("Drakenfer", 14, 2, 10, 10, 1));
             #endregion
 
         }
@@ -246,6 +247,9 @@ namespace SP_Simulator
                         break;
                     case "Ange vengeur":
                         SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.ArcherSP8;
+                        break;
+                    case "Drakenfer":
+                        SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.ArtisteSP1;
                         break;
                     default: SPPictureBox.BackgroundImage = null;
                         break;
@@ -1507,6 +1511,14 @@ namespace SP_Simulator
 
                     switch (win.status)
                     {
+                        case 4: // Corrigé
+                            MessageLabel.Text = "Votre SP a été améliorée !";
+                            SPSelected.points += win.gain;
+                            SPSelected.grade += 1;
+                            pointsGrade += win.gain;
+                            PtsLabel.Text = (int.Parse(PtsLabel.Text) + win.gain).ToString();
+                            GradeLabel.Text = "+" + SPSelected.grade;
+                            break;
                         case 3:
                             MessageLabel.Text = "Votre SP est à son\nmaximum !";
                             break;
@@ -1532,14 +1544,14 @@ namespace SP_Simulator
                             break;
                     }
 
-                    if (win.CheatUpgrade == null)
+                    /*if (win.CheatUpgrade == null)
                     {
                         SPSelected.points += win.gain;
 
                         pointsGrade += win.gain;
 
                         PtsLabel.Text = (int.Parse(PtsLabel.Text) + win.gain).ToString();
-                    }
+                    }*/
 
                     MessagesPanel.Visible = true;
 

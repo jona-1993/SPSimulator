@@ -278,7 +278,6 @@ namespace SP_Simulator
             if (CheatButton.Text == "Triche OFF")
             {
                 Random rand = new Random();
-
                 int random_int = rand.Next(1, 100);
 
                 switch (carte.grade)
@@ -286,21 +285,21 @@ namespace SP_Simulator
                     case 0:
                         if (random_int <= 80)
                         {
-                            status = 2;
+                            status = 4;
                             gain = 5;
                         }
                         break;
                     case 1:
                         if (random_int <= 75)
                         {
-                            status = 2;
+                            status = 4;
                             gain = 5;
                         }
                         break;
                     case 2:
                         if (random_int <= 70)
                         {
-                            status = 2;
+                            status = 4;
                             gain = 5;
                         }
                         else if (random_int <= 75)
@@ -311,7 +310,7 @@ namespace SP_Simulator
                     case 3:
                         if (random_int <= 60)
                         {
-                            status = 2;
+                            status = 4;
                             gain = 5;
                         }
                         else if (random_int <= 70)
@@ -322,7 +321,7 @@ namespace SP_Simulator
                     case 4:
                         if (random_int <= 50)
                         {
-                            status = 2;
+                            status = 4;
                             gain = 8;
                         }
                         else if (random_int <= 65)
@@ -333,7 +332,7 @@ namespace SP_Simulator
                     case 5:
                         if (random_int <= 40)
                         {
-                            status = 2;
+                            status = 4;
                             gain = 8;
                         }
                         else if (random_int <= 60)
@@ -344,7 +343,7 @@ namespace SP_Simulator
                     case 6:
                         if (random_int <= 35)
                         {
-                            status = 2;
+                            status = 4;
                             gain = 10;
                         }
                         else if (random_int <= 60)
@@ -355,7 +354,7 @@ namespace SP_Simulator
                     case 7:
                         if (random_int <= 30)
                         {
-                            status = 2;
+                            status = 4;
                             gain = 10;
                         }
                         else if (random_int <= 60)
@@ -366,7 +365,7 @@ namespace SP_Simulator
                     case 8:
                         if (random_int <= 25)
                         {
-                            status = 2;
+                            status = 4;
                             gain = 12;
                         }
                         else if (random_int <= 60)
@@ -377,7 +376,7 @@ namespace SP_Simulator
                     case 9:
                         if (random_int <= 20)
                         {
-                            status = 2;
+                            status = 4;
                             gain = 12;
                         }
                         else if (random_int <= 60)
@@ -388,7 +387,7 @@ namespace SP_Simulator
                     case 10:
                         if (random_int <= 10)
                         {
-                            status = 2;
+                            status = 4;
                             gain = 15;
                         }
                         else if (random_int <= 55)
@@ -399,7 +398,7 @@ namespace SP_Simulator
                     case 11:
                         if (random_int <= 7)
                         {
-                            status = 2;
+                            status = 4;
                             gain = 15;
                         }
                         else if (random_int <= 57)
@@ -410,7 +409,7 @@ namespace SP_Simulator
                     case 12:
                         if (random_int <= 5)
                         {
-                            status = 2;
+                            status = 4;
                             gain = 18;
                         }
                         else if (random_int <= 60)
@@ -421,7 +420,7 @@ namespace SP_Simulator
                     case 13:
                         if (random_int <= 3)
                         {
-                            status = 2;
+                            status = 4;
                             gain = 20;
                         }
                         else if (random_int <= 63)
@@ -432,7 +431,7 @@ namespace SP_Simulator
                     case 14:
                         if (random_int <= 1)
                         {
-                            status = 2;
+                            status = 4;
                             gain = 25;
                         }
                         else if (random_int <= 71)
