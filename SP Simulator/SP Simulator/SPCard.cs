@@ -61,7 +61,7 @@ namespace SP_Simulator
                     description = "Magicien maléfique utilisant la magie noire\nproscrite !\nOuvre les portes de la mort grâce aux\npouvoirs démoniaques !";
                     break;
                 case "Volcanor":
-                    description = "Le volcanor est un magicien extraordinaire\nqui peut commander sans limite les forces\n de la terre et du feu.<<Avec sa magie,\nles autres se retrouvent six pieds sous terre.>>\nRésistance à la phobie des dragons de 30%\nVitesse de déplacement +2";
+                    description = "Le volcanor est un magicien extraordinaire\nqui peut commander sans limite les forces\n de la terre et du feu.<<Avec sa magie,\nles autres se retrouvent six pieds sous terre.>>\nRésistance à la phobie des dragons de 30% (Draco)\nVitesse de déplacement +2";
                     break;
                 case "Sa Majesté des marées":
                     description = "Sa Majesté des marées règne sur les\nforces océaniques.\n<<Je tire ma force des abysses des mers.>>\n\nRésistance au froid augmenté de 10% ! (Glacerus)\nVitesse de déplacement +2";
@@ -73,49 +73,55 @@ namespace SP_Simulator
                     description = "L'archimage a reçu la puissance divine\nconcentrée.\n<<Dieu dit: sois la lumière>>\n\nVitesse de déplacement +1";
                     break;
                 case "Guerrier":
-                    description = "";
+                    description = "Il s'agit de la carte de spécialiste de\nl'élément Feu.\nAvec le pouvoir de l'épée, tu domines le\nchamp de battaille. Les techniques de\ncombat enflammées de cet épéiste\naudacieux écrasent les puissants\nadversaires en attaque rapprochée.";
                     break;
                 case "Ninja":
-                    description = "";
+                    description = "Il s'agit de la carte de spécialiste de\nl'élément Eau.\nLes yeux de cet épéiste emplis de haine.\nQuiconque croise le chemin de ce\npuissant guerrier devra en découdre avec\nsa lame redoutable.\nVitesse de déplacement +1";
                     break;
                 case "Croisé":
-                    description = "";
+                    description = "Il s'agit de la carte de spécialiste de\nl'élément Lumière.\nLa volonté de fer et la foi de l'épéiste\nmaintiennent l'équilibre entre le bien et le\nmal. Contre ce défenseur de la justice, les\nforces du mal sont désarmées.";
                     break;
                 case "Bersek":
-                    description = "";
+                    description = "Il s'agit de la carte de spécialiste de\nl'élément Obscurité.\nEn faisant appel aux forces du mal, ce\nguerrier force son adversaire à battre en\nretraite de manière parfois déloyale.\nImpuissants face à lui, ses ennemis n'ont\nplusqu'à se plier à sa volonté.";
                     break;
                 case "Gladiateur":
-                    description = "";
+                    description = "Il s'agit de la carte de spécialiste de\nl'élément Feu.\nLe gladiateur est avant tout un spécialiste du\ncombat PvP (joueur contre joueur).\n<< Cher public, salue ton vaincueur! >>\nRésistance à la phobie des dragons de 30% (Draco)";
+                    break;
+                case "Moine pugnace":
+                    description = "Le moine pugnace maitrise le maniement\nde la lance comme personne.\n<< Je nettoierai ce monde à la pointe de\nma lance. >>\nRésistance au froid augmenté de 10% ! (Glacerus)";
+                    break;
+                case "Mortifère":
+                    description = "C'est le bras de la mort.\n<< Tout a une fin... d'une manière ou\nd'une autre... >>";
                     break;
                 case "Renégat":
-                    description = "";
+                    description = "Bouclier divin et gardien de Lumière\n<< Ma lame sera baignée de sang. >>\nVitesse de déplacement +1";
                     break;
                 case "Ranger":
-                    description = "";
+                    description = "Il s'agit de la carte de spécialiste de\nl'élément Eau.\nIl ouvre le combat par la pluie de\nflèches mortelles avec une rapidité telle\nque l'ennemi n'a même pas le temps de\nvoir l'attaque arriver.";
                     break;
                 case "Assassin":
-                    description = "";
+                    description = "Il s'agit de la carte de spécialiste de\nl'élément Obscurité.\nDerrière le masque se cache un terrible\nguerrier aussi sanguinaire que dangereux.\nSes adversaires ne devraient jamais le\nquitter des yeux.\nVitesse de déplacement +1";
                     break;
                 case "Destructeur":
-                    description = "";
+                    description = "Il s'agit de la carte de spécialiste de\nl'élément Feu.\nSa nature destructive perdra l'adversaire\nqui croisera la route de cet avanturier\nexplorateur. La rage brûlante qui l'anime\nsupprime ses ennemis sans pitié.";
                     break;
                 case "Garde-chasse":
-                    description = "";
+                    description = "Il s'agit de la carte de spécialiste de\nl'élément Lumière.\nSes connaisances et son instinct animal\nlui permettent de s'en sortir dans les\ncontrées les plus inhospitalières. Grâce à\nses forces bestiales, il se joue violemment\nde ses ennemis.";
                     break;
                 case "Canonnier de feu":
-                    description = "";
+                    description = "Il s'agit de la carte de spécialiste de l'élément Feu.\nLe cannonier de feu est le maître des armes à feu\nles plus impressionnantes.\n<< Mon canon est plus puissant que\nn'importe quelle magie. >>\nRésistance à la phobie des dragons de 30% (Draco)\nVitesse de déplacement +2";
                     break;
                 case "Eclaireur":
-                    description = "";
+                    description = "L'éclaireur est un as de l'arbalète et un\nexpert en mission de reconnaissance.\n<< Si tu te connais et tu connais\nencore mieux ton ennemi, tu peux\nremporter toutes les batailles. >>\nRésistance au froid augmenté de 10% ! (Glacerus)";
                     break;
                 case "Chasseur de démons":
-                    description = "";
+                    description = "Ce ranger a signé un pacte avec le diable\nen personne.\n<< J'ai moi-même vendu mon âme au\ndiable... Je détruirai tous les démons. >>\nVitesse de déplacement +1";
                     break;
                 case "Ange vengeur":
-                    description = "";
+                    description = "Membre de l'armée divine et gardien des\ncieux azurs\n<< Mon épée est la volonté de Dieu. >>\nVitesse de déplacement +2";
                     break;
                 case "Drakenfer":
-                    description = "";
+                    description = "Haetae libère ton caractère sauvage.\nLa puissance du feu et de la bête qui\nt'habite anéantit les ennemis.\nVitesse de déplacement +2";
                     break;
                 default:
                     description = "";
@@ -127,39 +133,6 @@ namespace SP_Simulator
         {
             return nom;
         }
-        /*
-        // override object.Equals
-        public override bool Equals(object obj)
-        {
-            //       
-            // See the full list of guidelines at
-            //   http://go.microsoft.com/fwlink/?LinkID=85237  
-            // and also the guidance for operator== at
-            //   http://go.microsoft.com/fwlink/?LinkId=85238
-            //
-
-            if (obj == null || GetType() != obj.GetType())
-            {
-                return false;
-            }
-
-            // TODO: write your implementation of Equals() here
-            //throw new NotImplementedException();
-
-            if ((((SPCard)obj).niveau + ((SPCard)obj).grade) == (this.niveau + this.grade))
-            {
-                return base.Equals(obj);
-            }
-            else
-                return false;
-        }
-
-        // override object.GetHashCode
-        public override int GetHashCode()
-        {
-            // TODO: write your implementation of GetHashCode() here
-            throw new NotImplementedException();
-            return base.GetHashCode();
-        }*/
+        
     }
 }

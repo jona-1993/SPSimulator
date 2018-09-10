@@ -243,6 +243,26 @@ namespace SP_Simulator.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap EscriSP6 {
+            get {
+                object obj = ResourceManager.GetObject("EscriSP6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EscriSP7 {
+            get {
+                object obj = ResourceManager.GetObject("EscriSP7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap EscriSP8 {
             get {
                 object obj = ResourceManager.GetObject("EscriSP8", resourceCulture);

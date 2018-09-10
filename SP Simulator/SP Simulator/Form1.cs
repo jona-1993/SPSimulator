@@ -45,10 +45,12 @@ namespace SP_Simulator
             try 
             {
                 pDocked = Process.GetProcessesByName("NostaleClientX").First();
-                Thread.Sleep(5000);
-                
+                Thread.Sleep(2000);
+
+                // Fait parfois quitter le jeu quand on quitte de l'appli (Trouver une meilleure alternative..)
                 SetParent(pDocked.MainWindowHandle, Process.GetCurrentProcess().Handle); // L'appli doit avoir les droits !
-                
+                //SetParent(Process.GetCurrentProcess().Handle, pDocked.MainWindowHandle); // L'appli doit avoir les droits !
+
                 foc.Tick += Activation;
                 foc.Interval = 2000;
                 foc.Start();
@@ -61,7 +63,7 @@ namespace SP_Simulator
 
             MessagesPanel.Visible = false;
 
-            DescLabel.Text = "Développeur: C. Jonathan\n\nVersion: 18.8.14 (Bêta)\n\nCopyright: (" + DateTime.Now.Year + ") Tous droits réservés.";
+            DescLabel.Text = "Développeur: C. Jonathan\n\nVersion: 18.9.10 (Bêta)\n\nCopyright: (" + DateTime.Now.Year + ") Tous droits réservés.";
 
             Grade80plusTB.Visible = false;
 
@@ -73,10 +75,12 @@ namespace SP_Simulator
 
 
             #region CBAddSP
+            ChoixCB.Items.Add("<< Cartes Multi-classes >>");
             ChoixCB.Items.Add(new SPCard("Pyjama", 0, 0, 0, 0, 1));
             ChoixCB.Items.Add(new SPCard("Costume de Poule", 0, 0, 0, 0, 1));
             ChoixCB.Items.Add(new SPCard("Jajamaru", 8, 0, 0, 3, 1));
             ChoixCB.Items.Add(new SPCard("Pirate", 0, 0, 0, 0, 1));
+            ChoixCB.Items.Add("<< Cartes classe Sorcier >>");
             ChoixCB.Items.Add(new SPCard("Mage du feu", 17, 0, 0, 0, 1));
             ChoixCB.Items.Add(new SPCard("Mage sacré", 4, 4, 4, 16, 1));
             ChoixCB.Items.Add(new SPCard("Mage de glace", 2, 17, 1, 1, 1));
@@ -85,12 +89,16 @@ namespace SP_Simulator
             ChoixCB.Items.Add(new SPCard("Sa Majesté des marées", 5, 16, 6, 2, 2));
             ChoixCB.Items.Add(new SPCard("Devin", 5, 2, 5, 17, 2));
             ChoixCB.Items.Add(new SPCard("Archimage", 5, 5, 15, 6, 2));
+            ChoixCB.Items.Add("<< Cartes classe Épéiste >>");
             ChoixCB.Items.Add(new SPCard("Guerrier", 4, 13, 0, 0, 1));
             ChoixCB.Items.Add(new SPCard("Ninja", 3, 11, 8, 0, 1));
             ChoixCB.Items.Add(new SPCard("Croisé", 3, 2, 5, 13, 1));
             ChoixCB.Items.Add(new SPCard("Bersek", 3, 2, 1, 15, 1));
             ChoixCB.Items.Add(new SPCard("Gladiateur", 15, 4, 0, 4, 2));
+            ChoixCB.Items.Add(new SPCard("Moine pugnace", 3, 16, 3, 2, 2));
+            ChoixCB.Items.Add(new SPCard("Mortifère", 5, 4, 2, 18, 2));
             ChoixCB.Items.Add(new SPCard("Renégat", 2, 2, 12, 12, 2));
+            ChoixCB.Items.Add("<< Cartes classe Archer >>");
             ChoixCB.Items.Add(new SPCard("Ranger", 0, 9, 10, 0, 1));
             ChoixCB.Items.Add(new SPCard("Assassin", 3, 3, 0, 16, 1));
             ChoixCB.Items.Add(new SPCard("Destructeur", 14, 5, 0, 0, 1));
@@ -99,6 +107,7 @@ namespace SP_Simulator
             ChoixCB.Items.Add(new SPCard("Eclaireur", 5, 14, 5, 3, 2));
             ChoixCB.Items.Add(new SPCard("Chasseur de démons", 4, 3, 6, 16, 2));
             ChoixCB.Items.Add(new SPCard("Ange vengeur", 3, 4, 18, 2, 2));
+            ChoixCB.Items.Add("<< Cartes classe Artiste-Martial >>");
             ChoixCB.Items.Add(new SPCard("Drakenfer", 14, 2, 10, 10, 1));
             #endregion
 
@@ -156,130 +165,145 @@ namespace SP_Simulator
 
         private void ChoixCB_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             if (ChoixCB.SelectedText != "Sélection")
             {
-                SPSelected = new SPCard((SPCard)ChoixCB.SelectedItem);
-
-                SPLabel.Text = SPSelected.ToString();
-                LvLabel.Text = SPSelected.niveau.ToString();
-                LumiereLabel.Text = SPSelected.resLumiere.ToString();
-                ObscureLabel.Text = SPSelected.resObscure.ToString();
-                FeuLabel.Text = SPSelected.resFeu.ToString();
-                EauLabel.Text = SPSelected.resEau.ToString();
-                GradeLabel.Text = "+0";
-
-                #region SwitchConfigSP
-                switch(SPSelected.ToString())
+                try
                 {
-                    case "Pyjama": SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.Pyjama;
-                        break;
-                    case "Costume de Poule": SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.Poule;
-                        break;
-                    case "Jajamaru":
-                        SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.Jajamaru;
-                        break;
-                    case "Pirate":
-                        SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.Pirate;
-                        break;
-                    case "Mage du feu":
-                        SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.MageSP1;
-                        break;
-                    case "Mage sacré":
-                        SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.MageSP2;
-                        break;
-                    case "Mage de glace":
-                        SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.MageSP3;
-                        break;
-                    case "Mage ténébreux":
-                        SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.MageSP4;
-                        break;
-                    case "Volcanor":
-                        SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.MageSP5;
-                        break;
-                    case "Sa Majesté des marées":
-                        SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.MageSP6;
-                        break;
-                    case "Devin":
-                        SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.MageSP7;
-                        break;
-                    case "Archimage":
-                        SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.MageSP8;
-                        break;
-                    case "Guerrier":
-                        SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.EscriSP1;
-                        break;
-                    case "Ninja":
-                        SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.EscriSP2;
-                        break;
-                    case "Croisé":
-                        SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.EscriSP3;
-                        break;
-                    case "Bersek":
-                        SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.EscriSP4;
-                        break;
-                    case "Gladiateur":
-                        SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.EscriSP5;
-                        break;
-                    case "Renégat":
-                        SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.EscriSP8;
-                        break;
-                    case "Ranger":
-                        SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.ArcherSP1;
-                        break;
-                    case "Assassin":
-                        SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.ArcherSP2;
-                        break;
-                    case "Destructeur":
-                        SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.ArcherSP3;
-                        break;
-                    case "Garde-chasse":
-                        SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.ArcherSP4;
-                        break;
-                    case "Canonnier de feu":
-                        SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.ArcherSP5;
-                        break;
-                    case "Eclaireur":
-                        SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.ArcherSP6;
-                        break;
-                    case "Chasseur de démons":
-                        SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.ArcherSP7;
-                        break;
-                    case "Ange vengeur":
-                        SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.ArcherSP8;
-                        break;
-                    case "Drakenfer":
-                        SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.ArtisteSP1;
-                        break;
-                    default: SPPictureBox.BackgroundImage = null;
-                        break;
+                    SPSelected = new SPCard((SPCard)ChoixCB.SelectedItem);
+
+                    SPLabel.Text = SPSelected.ToString();
+                    LvLabel.Text = SPSelected.niveau.ToString();
+                    LumiereLabel.Text = SPSelected.resLumiere.ToString();
+                    ObscureLabel.Text = SPSelected.resObscure.ToString();
+                    FeuLabel.Text = SPSelected.resFeu.ToString();
+                    EauLabel.Text = SPSelected.resEau.ToString();
+                    GradeLabel.Text = "+0";
+
+                    #region SwitchConfigSP
+                    switch (SPSelected.ToString())
+                    {
+                        case "Pyjama":
+                            SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.Pyjama;
+                            break;
+                        case "Costume de Poule":
+                            SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.Poule;
+                            break;
+                        case "Jajamaru":
+                            SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.Jajamaru;
+                            break;
+                        case "Pirate":
+                            SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.Pirate;
+                            break;
+                        case "Mage du feu":
+                            SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.MageSP1;
+                            break;
+                        case "Mage sacré":
+                            SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.MageSP2;
+                            break;
+                        case "Mage de glace":
+                            SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.MageSP3;
+                            break;
+                        case "Mage ténébreux":
+                            SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.MageSP4;
+                            break;
+                        case "Volcanor":
+                            SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.MageSP5;
+                            break;
+                        case "Sa Majesté des marées":
+                            SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.MageSP6;
+                            break;
+                        case "Devin":
+                            SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.MageSP7;
+                            break;
+                        case "Archimage":
+                            SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.MageSP8;
+                            break;
+                        case "Guerrier":
+                            SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.EscriSP1;
+                            break;
+                        case "Ninja":
+                            SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.EscriSP2;
+                            break;
+                        case "Croisé":
+                            SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.EscriSP3;
+                            break;
+                        case "Bersek":
+                            SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.EscriSP4;
+                            break;
+                        case "Gladiateur":
+                            SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.EscriSP5;
+                            break;
+                        case "Moine pugnace":
+                            SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.EscriSP6;
+                            break;
+                        case "Mortifère":
+                            SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.EscriSP7;
+                            break;
+                        case "Renégat":
+                            SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.EscriSP8;
+                            break;
+                        case "Ranger":
+                            SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.ArcherSP1;
+                            break;
+                        case "Assassin":
+                            SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.ArcherSP2;
+                            break;
+                        case "Destructeur":
+                            SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.ArcherSP3;
+                            break;
+                        case "Garde-chasse":
+                            SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.ArcherSP4;
+                            break;
+                        case "Canonnier de feu":
+                            SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.ArcherSP5;
+                            break;
+                        case "Eclaireur":
+                            SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.ArcherSP6;
+                            break;
+                        case "Chasseur de démons":
+                            SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.ArcherSP7;
+                            break;
+                        case "Ange vengeur":
+                            SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.ArcherSP8;
+                            break;
+                        case "Drakenfer":
+                            SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.ArtisteSP1;
+                            break;
+                        default:
+                            SPPictureBox.BackgroundImage = null;
+                            break;
+                    }
+                    #endregion
+
+                    DescLabel.Text = SPSelected.description;
+
+                    PtsLabel.Text = "" + 0;
+                    pointsGrade = 0;
+                    pointsLevel = 0;
+                    pointsRestant = 0;
+                    GradeLabel.Text = "+" + SPSelected.grade;
+
+                    AtkLabel.Text = "" + (SLGen + SLAtk);
+                    DefLabel.Text = "" + (SLGen + SLDef);
+                    ElemLabel.Text = "" + (SLGen + SLElem);
+                    HPLabel.Text = "" + (SLGen + SLHp);
+
+                    AmelioLabel.Text = "+0";
+
+                    AmelioAtkLabel.Text = "+" + SPSelected.bonusAttaque;
+                    AmelioDefLabel.Text = "+" + SPSelected.bonusDefense;
+                    AmelioElemLabel.Text = "+" + SPSelected.bonusElement;
+                    AmelioHpLabel.Text = "+" + SPSelected.bonusHp;
+
+                    AmelioResObsLabel.Text = "+" + SPSelected.bonusResObscure;
+                    AmelioResLumLabel.Text = "+" + SPSelected.bonusResLumiere;
+                    AmelioResFeuLabel.Text = "+" + SPSelected.bonusResFeu;
+                    AmelioResEauLabel.Text = "+" + SPSelected.bonusResEau;
+
                 }
-                #endregion
-
-                DescLabel.Text = SPSelected.description;
-
-                PtsLabel.Text = "" + 0;
-                pointsGrade = 0;
-                pointsLevel = 0;
-                pointsRestant = 0;
-                GradeLabel.Text = "+" + SPSelected.grade;
                 
-                AtkLabel.Text = "" + (SLGen + SLAtk);
-                DefLabel.Text = "" + (SLGen + SLDef);
-                ElemLabel.Text = "" + (SLGen + SLElem);
-                HPLabel.Text = "" + (SLGen + SLHp);
-
-                AmelioLabel.Text = "+0";
-
-                AmelioAtkLabel.Text = "+" + SPSelected.bonusAttaque;
-                AmelioDefLabel.Text = "+" + SPSelected.bonusDefense;
-                AmelioElemLabel.Text = "+" + SPSelected.bonusElement;
-                AmelioHpLabel.Text = "+" + SPSelected.bonusHp;
-
-                AmelioResObsLabel.Text = "+" + SPSelected.bonusResObscure;
-                AmelioResLumLabel.Text = "+" + SPSelected.bonusResLumiere;
-                AmelioResFeuLabel.Text = "+" + SPSelected.bonusResFeu;
-                AmelioResEauLabel.Text = "+" + SPSelected.bonusResEau;
+                catch (System.InvalidCastException) { SPSelected = null; SPPictureBox.BackgroundImage = null; }
                
             }
         }
