@@ -123,6 +123,12 @@ namespace SP_Simulator
                 case "Drakenfer":
                     description = "Haetae libère ton caractère sauvage.\nLa puissance du feu et de la bête qui\nt'habite anéantit les ennemis.\nVitesse de déplacement +2";
                     break;
+                case "Arts mystiques":
+                    description = "C'est un Artiste Martial qui peut rediriger\nl'énergie de la lune et qui maîtrise la\npuissance de la fleur de lotus.\nVitesse de déplacement +2";
+                    break;
+                case "Maître loup":
+                    description = "Ce maître est parvenu à l'illumination.\n<< La véritable force réside dans l'esprit. >>\nVitesse de déplacement +2";
+                    break;
                 default:
                     description = "";
                     break;

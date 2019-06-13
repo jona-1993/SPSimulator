@@ -226,4 +226,10 @@
   <data name="EscriSP7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EscriSP4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ArtisteSP2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\artistesp2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ArtisteSP3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\artistesp3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

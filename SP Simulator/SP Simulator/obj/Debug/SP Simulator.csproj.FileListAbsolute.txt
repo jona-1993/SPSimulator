@@ -21,3 +21,15 @@ D:\Projets\SP Simulator\SP Simulator\obj\Debug\SP Simulator.csproj.GenerateResou
 D:\Projets\SP Simulator\SP Simulator\obj\Debug\SP Simulator.csproj.CoreCompileInputs.cache
 D:\Projets\SP Simulator\SP Simulator\obj\Debug\SP Simulator.exe
 D:\Projets\SP Simulator\SP Simulator\obj\Debug\SP Simulator.pdb
+C:\Users\capij\OneDrive\Bureau\GITHUB\SPSimulator\SP Simulator\SP Simulator\bin\Debug\SP Simulator.exe.config
+C:\Users\capij\OneDrive\Bureau\GITHUB\SPSimulator\SP Simulator\SP Simulator\bin\Debug\SP Simulator.exe
+C:\Users\capij\OneDrive\Bureau\GITHUB\SPSimulator\SP Simulator\SP Simulator\bin\Debug\SP Simulator.pdb
+C:\Users\capij\OneDrive\Bureau\GITHUB\SPSimulator\SP Simulator\SP Simulator\obj\Debug\SP Simulator.csprojAssemblyReference.cache
+C:\Users\capij\OneDrive\Bureau\GITHUB\SPSimulator\SP Simulator\SP Simulator\obj\Debug\SP_Simulator.Form1.resources
+C:\Users\capij\OneDrive\Bureau\GITHUB\SPSimulator\SP Simulator\SP Simulator\obj\Debug\SP_Simulator.PotentielGUI.resources
+C:\Users\capij\OneDrive\Bureau\GITHUB\SPSimulator\SP Simulator\SP Simulator\obj\Debug\SP_Simulator.Properties.Resources.resources
+C:\Users\capij\OneDrive\Bureau\GITHUB\SPSimulator\SP Simulator\SP Simulator\obj\Debug\SP_Simulator.SPUpgrade.resources
+C:\Users\capij\OneDrive\Bureau\GITHUB\SPSimulator\SP Simulator\SP Simulator\obj\Debug\SP Simulator.csproj.GenerateResource.cache
+C:\Users\capij\OneDrive\Bureau\GITHUB\SPSimulator\SP Simulator\SP Simulator\obj\Debug\SP Simulator.csproj.CoreCompileInputs.cache
+C:\Users\capij\OneDrive\Bureau\GITHUB\SPSimulator\SP Simulator\SP Simulator\obj\Debug\SP Simulator.exe
+C:\Users\capij\OneDrive\Bureau\GITHUB\SPSimulator\SP Simulator\SP Simulator\obj\Debug\SP Simulator.pdb

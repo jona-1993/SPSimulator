@@ -63,7 +63,7 @@ namespace SP_Simulator
 
             MessagesPanel.Visible = false;
 
-            DescLabel.Text = "Développeur: C. Jonathan\n\nVersion: 18.9.10 (Bêta)\n\nCopyright: (" + DateTime.Now.Year + ") Tous droits réservés.";
+            DescLabel.Text = "Développeur: C. Jonathan\n\nVersion: 19.6.13 (Bêta)\n\nCopyright: (" + DateTime.Now.Year + ") Tous droits réservés.";
 
             Grade80plusTB.Visible = false;
 
@@ -109,6 +109,8 @@ namespace SP_Simulator
             ChoixCB.Items.Add(new SPCard("Ange vengeur", 3, 4, 18, 2, 2));
             ChoixCB.Items.Add("<< Cartes classe Artiste-Martial >>");
             ChoixCB.Items.Add(new SPCard("Drakenfer", 14, 2, 10, 10, 1));
+            ChoixCB.Items.Add(new SPCard("Arts mystiques", 15, 30, 20, 10, 1));
+            ChoixCB.Items.Add(new SPCard("Maître loup", 10, 15, 30, 15, 1));
             #endregion
 
         }
@@ -269,6 +271,12 @@ namespace SP_Simulator
                             break;
                         case "Drakenfer":
                             SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.ArtisteSP1;
+                            break;
+                        case "Arts mystiques":
+                            SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.ArtisteSP2;
+                            break;
+                        case "Maître loup":
+                            SPPictureBox.BackgroundImage = SP_Simulator.Properties.Resources.ArtisteSP3;
                             break;
                         default:
                             SPPictureBox.BackgroundImage = null;

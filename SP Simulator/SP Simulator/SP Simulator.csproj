@@ -143,6 +143,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="IconSP.ico" />
+    <Content Include="Resources\ArtisteSP2.png" />
+    <Content Include="Resources\ArtisteSP3.png" />
     <None Include="Resources\EscriSP4.jpg" />
     <None Include="Resources\EscriSP6.jpg" />
     <None Include="Resources\ArtisteSP1.jpg" />

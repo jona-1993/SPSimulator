@@ -9,3 +9,15 @@ C:\Users\jona1993\Desktop\SP Simulator\SP Simulator\obj\Release\SP Simulator.pdb
 C:\Users\jona1993\Desktop\SP Simulator\SP Simulator\obj\Release\SP Simulator.csprojResolveAssemblyReference.cache
 C:\Users\jona1993\Desktop\SP Simulator\SP Simulator\obj\Release\SP_Simulator.SPUpgrade.resources
 C:\Users\jona1993\Desktop\SP Simulator\SP Simulator\obj\Release\SP_Simulator.PotentielGUI.resources
+C:\Users\capij\OneDrive\Bureau\GITHUB\SPSimulator\SP Simulator\SP Simulator\bin\Release\SP Simulator.exe.config
+C:\Users\capij\OneDrive\Bureau\GITHUB\SPSimulator\SP Simulator\SP Simulator\bin\Release\SP Simulator.exe
+C:\Users\capij\OneDrive\Bureau\GITHUB\SPSimulator\SP Simulator\SP Simulator\bin\Release\SP Simulator.pdb
+C:\Users\capij\OneDrive\Bureau\GITHUB\SPSimulator\SP Simulator\SP Simulator\obj\Release\SP Simulator.csprojAssemblyReference.cache
+C:\Users\capij\OneDrive\Bureau\GITHUB\SPSimulator\SP Simulator\SP Simulator\obj\Release\SP_Simulator.Form1.resources
+C:\Users\capij\OneDrive\Bureau\GITHUB\SPSimulator\SP Simulator\SP Simulator\obj\Release\SP_Simulator.PotentielGUI.resources
+C:\Users\capij\OneDrive\Bureau\GITHUB\SPSimulator\SP Simulator\SP Simulator\obj\Release\SP_Simulator.Properties.Resources.resources
+C:\Users\capij\OneDrive\Bureau\GITHUB\SPSimulator\SP Simulator\SP Simulator\obj\Release\SP_Simulator.SPUpgrade.resources
+C:\Users\capij\OneDrive\Bureau\GITHUB\SPSimulator\SP Simulator\SP Simulator\obj\Release\SP Simulator.csproj.GenerateResource.cache
+C:\Users\capij\OneDrive\Bureau\GITHUB\SPSimulator\SP Simulator\SP Simulator\obj\Release\SP Simulator.csproj.CoreCompileInputs.cache
+C:\Users\capij\OneDrive\Bureau\GITHUB\SPSimulator\SP Simulator\SP Simulator\obj\Release\SP Simulator.exe
+C:\Users\capij\OneDrive\Bureau\GITHUB\SPSimulator\SP Simulator\SP Simulator\obj\Release\SP Simulator.pdb
